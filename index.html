@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0b">
@@ -15,11 +14,11 @@
   %22display%22:%22standalone%22,
   %22background_color%22:%22%230a0a0b%22,
   %22theme_color%22:%22%23f0b464%22,
-  %22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 192 192%27><rect width=%27192%27 height=%27192%27 rx=%2745%27 fill=%27%230a0a0b%27/><circle cx=%2796%27 cy=%2796%27 r=%2750%27 fill=%27%23f0b464%27/><circle cx=%2796%27 cy=%2796%27 r=%2738%27 fill=%27%230a0a0b%27/><path d=%27M70 80 L96 110 L130 70%27 stroke=%27%23f0b464%27 stroke-width=%275%27 fill=%27none%27 stroke-linecap=%27round%27/></svg>%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22,%22purpose%22:%22any%22}]
+  %22icons%22:[{%22src%22:%22data:image/svg+xml,&lt;svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 192 192%27&gt;&lt;rect width=%27192%27 height=%27192%27 rx=%2745%27 fill=%27%230a0a0b%27/&gt;&lt;circle cx=%2796%27 cy=%2796%27 r=%2750%27 fill=%27%23f0b464%27/&gt;&lt;circle cx=%2796%27 cy=%2796%27 r=%2738%27 fill=%27%230a0a0b%27/&gt;&lt;path d=%27M70 80 L96 110 L130 70%27 stroke=%27%23f0b464%27 stroke-width=%275%27 fill=%27none%27 stroke-linecap=%27round%27/&gt;&lt;/svg&gt;%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22,%22purpose%22:%22any%22}]
 }">
 
 <title>Panel de Andrés</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230a0a0b%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23f0b464%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22&gt;&lt;rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230a0a0b%22/&gt;&lt;circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23f0b464%22/&gt;&lt;/svg&gt;">
 
 <style>
 :root {
@@ -39,9 +38,9 @@
   --done-strong: #6b9e3f;
   --missed: #d96a5a;
   --missed-strong: #b84a3a;
-  --p1-p2: #85b555;
-  --p3-p4: #6ba3d0;
-  --p5: #d4885e;
+  --p1-color: #f4a460; /* Naranja */
+  --p2-color: #6ba3d0; /* Azul */
+  --p3-color: #6db67f; /* Verde */
   --radius: 8px;
   --radius-lg: 12px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -302,9 +301,9 @@ body {
   margin-bottom: 8px;
 }
 
-.habit.p1, .habit.p2 { border-left-color: var(--p1-p2); }
-.habit.p3, .habit.p4 { border-left-color: var(--p3-p4); }
-.habit.p5 { border-left-color: var(--p5); }
+.habit.p1 { border-left-color: var(--p1-color); }
+.habit.p2 { border-left-color: var(--p2-color); }
+.habit.p3 { border-left-color: var(--p3-color); }
 
 .habit-head {
   display: flex;
@@ -697,7 +696,7 @@ a.task-title:hover { color: var(--accent); }
   font-family: var(--font-mono);
 }
 
-.stat-value.secondary { color: var(--p3-p4); }
+.stat-value.secondary { color: var(--p2-color); }
 
 .stat-value.success { color: var(--done); }
 
@@ -1212,27 +1211,103 @@ canvas {
   color: #fff; 
 }
 
+/* Hábitos con número y 3 colores */
+.habit-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.habit-item.p1 .habit-number { background: #f4a460; } /* Naranja */
+.habit-item.p2 .habit-number { background: #6ba3d0; } /* Azul */
+.habit-item.p3 .habit-number { background: #6db67f; } /* Verde */
+
+.habit-item.p1 { border-left-color: #f4a460 !important; }
+.habit-item.p2 { border-left-color: #6ba3d0 !important; }
+.habit-item.p3 { border-left-color: #6db67f !important; }
+
+/* Toggle switch para recordatorios - PEQUEÑO */
+.reminder-toggle-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45px;
+  height: 22px;
+  background: #404041;
+  border-radius: 11px;
+  padding: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+}
+
+.reminder-toggle-switch.on {
+  background: #6db67f;
+}
+
+.reminder-toggle-switch::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.reminder-toggle-switch.on::after {
+  transform: translateX(23px);
+}
+
+
+.habit-reorder-btns {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  margin-right: 8px;
+}
+.habit-reorder-btns button {
+  padding: 2px 4px;
+  font-size: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  cursor: pointer;
+  border-radius: 2px;
+}
+.habit-reorder-btns button:hover {
+  background: var(--border);
+}
+
 </style>
 </head>
-<body>
+<body class="">
 <div class="app">
   <header class="header">
     <div class="header-left">
       <div class="date-badge">
-        <span id="date-badge-day"></span>
+        <span id="date-badge-day">24</span>
         <span class="dot">·</span>
-        <span id="date-badge-month"></span>
+        <span id="date-badge-month">AGO 2026</span>
       </div>
       <h1 class="title">Panel de Andrés</h1>
-      <p class="subtitle" id="today-label"></p>
+      <p class="subtitle" id="today-label">lunes · 24 de agosto</p>
       <div class="progress-row">
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-        <span class="progress-label" id="progress-label">0/4</span>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%;"></div></div>
+        <span class="progress-label" id="progress-label">0/6</span>
       </div>
     </div>
     <div class="header-buttons">
       <button class="icon-header-btn" id="btn-reminders" aria-label="Recordatorios" title="Recordatorios personalizados">🔔</button>
-      <button class="icon-header-btn" id="btn-theme" aria-label="Cambiar tema" title="Tema claro/oscuro">🌙</button>
+      <!-- Luna movida a Settings -->
       <button class="icon-header-btn" id="btn-settings" aria-label="Configuración" title="Configuración">⚙️</button>
     </div>
   </header>
@@ -1240,37 +1315,149 @@ canvas {
   <div id="alerts"></div>
 
   <nav class="tabs" role="tablist">
-    <button class="tab active" data-view="agenda" role="tab">Agenda</button>
-    <button class="tab" data-view="tracker" role="tab">Tracker</button>
+    <button class="tab" data-view="agenda" role="tab">Agenda</button>
+    <button class="tab active" data-view="tracker" role="tab">Tracker</button>
     <button class="tab" data-view="stats" role="tab">Stats</button>
   </nav>
 
+  <!-- EVENTOS URGENTES - Debajo de pestañas -->
+  <div id="urgent-events-banner" style="padding: 0 16px; margin: 16px 0;"></div>
+
   <!-- VISTA: TRACKER (Hábitos) -->
-  <div class="view" id="view-tracker" hidden>
+  <div class="view" id="view-tracker">
   <section class="section">
     <div class="section-head">
       <h2 class="section-title">Hábitos del mes</h2>
       <div style="display: flex; gap: 8px; align-items: center;">
-        <span class="section-meta" id="month-label"></span>
+        <span class="section-meta" id="month-label">agosto 2026</span>
         <button class="add-btn" onclick="openNewHabitModal()">+</button>
       </div>
     </div>
-    <div id="habits"></div>
+    <div id="habits"><div class="habit p1">
+      <div class="habit-head">
+        <span class="habit-number">1</span>
+        <div class="habit-reorder-btns" style="display: none;">
+          <button style="visibility: hidden;" onclick="moveHabit('aprender-ia', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('aprender-ia', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">Aprender inteligencia artificial</span>
+        <span class="habit-meta prio-tag">P1</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('aprender-ia')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('aprender-ia')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="aprender-ia"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day"><div class="day-label">21</div><div class="day-box"></div></div><div class="day"><div class="day-label">22</div><div class="day-box"></div></div><div class="day missed"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div><div class="habit p1">
+      <div class="habit-head">
+        <span class="habit-number">2</span>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('no-procrastinar', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('no-procrastinar', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">No procrastinar (regla 5s)</span>
+        <span class="habit-meta"><span class="flame">▲</span>1d</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('no-procrastinar')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('no-procrastinar')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="no-procrastinar"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day"><div class="day-label">21</div><div class="day-box"></div></div><div class="day"><div class="day-label">22</div><div class="day-box"></div></div><div class="day done"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div><div class="habit p2">
+      <div class="habit-head">
+        <span class="habit-number">3</span>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('deporte', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('deporte', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">Deporte 4/7 dias -20 mins</span>
+        <span class="habit-meta prio-tag">P2</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('deporte')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('deporte')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="deporte"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day done"><div class="day-label">21</div><div class="day-box"></div></div><div class="day missed"><div class="day-label">22</div><div class="day-box"></div></div><div class="day"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div><div class="habit p3">
+      <div class="habit-head">
+        <span class="habit-number">4</span>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('buenas-vibras', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('buenas-vibras', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">Sonreír, buenas vibras</span>
+        <span class="habit-meta prio-tag">P3</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('buenas-vibras')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('buenas-vibras')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="buenas-vibras"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day"><div class="day-label">21</div><div class="day-box"></div></div><div class="day"><div class="day-label">22</div><div class="day-box"></div></div><div class="day"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div><div class="habit p2">
+      <div class="habit-head">
+        <span class="habit-number">5</span>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('habit-1787310733658', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('habit-1787310733658', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">30 mins FitInTrade</span>
+        <span class="habit-meta"><span class="flame">▲</span>2d</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('habit-1787310733658')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('habit-1787310733658')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="habit-1787310733658"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day"><div class="day-label">21</div><div class="day-box"></div></div><div class="day done"><div class="day-label">22</div><div class="day-box"></div></div><div class="day done"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div><div class="habit p2">
+      <div class="habit-head">
+        <span class="habit-number">6</span>
+        <div class="habit-reorder-btns" style="display: flex;">
+          <button style="visibility: visible;" onclick="moveHabit('habit-1787046963134', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: none;">
+          <button style="visibility: hidden;" onclick="moveHabit('habit-1787046963134', 'down')" title="Abajo">▼</button>
+        </div>
+        <span class="habit-name">No olvidarse de las cosas</span>
+        <span class="habit-meta prio-tag">P2</span>
+        <span class="habit-actions">
+          <button class="icon-btn" onclick="editHabit('habit-1787046963134')" title="Editar">✎</button>
+          <button class="icon-btn" onclick="deleteHabit('habit-1787046963134')" title="Eliminar">✕</button>
+        </span>
+      </div>
+      <div class="grid" data-habit="habit-1787046963134"><div class="day"><div class="day-label">01</div><div class="day-box"></div></div><div class="day"><div class="day-label">02</div><div class="day-box"></div></div><div class="day"><div class="day-label">03</div><div class="day-box"></div></div><div class="day"><div class="day-label">04</div><div class="day-box"></div></div><div class="day"><div class="day-label">05</div><div class="day-box"></div></div><div class="day"><div class="day-label">06</div><div class="day-box"></div></div><div class="day"><div class="day-label">07</div><div class="day-box"></div></div><div class="day"><div class="day-label">08</div><div class="day-box"></div></div><div class="day"><div class="day-label">09</div><div class="day-box"></div></div><div class="day"><div class="day-label">10</div><div class="day-box"></div></div><div class="day"><div class="day-label">11</div><div class="day-box"></div></div><div class="day"><div class="day-label">12</div><div class="day-box"></div></div><div class="day"><div class="day-label">13</div><div class="day-box"></div></div><div class="day"><div class="day-label">14</div><div class="day-box"></div></div><div class="day"><div class="day-label">15</div><div class="day-box"></div></div><div class="day"><div class="day-label">16</div><div class="day-box"></div></div><div class="day"><div class="day-label">17</div><div class="day-box"></div></div><div class="day"><div class="day-label">18</div><div class="day-box"></div></div><div class="day"><div class="day-label">19</div><div class="day-box"></div></div><div class="day"><div class="day-label">20</div><div class="day-box"></div></div><div class="day"><div class="day-label">21</div><div class="day-box"></div></div><div class="day"><div class="day-label">22</div><div class="day-box"></div></div><div class="day"><div class="day-label">23</div><div class="day-box"></div></div><div class="day today"><div class="day-label">24</div><div class="day-box"></div></div><div class="day future"><div class="day-label">25</div><div class="day-box"></div></div><div class="day future"><div class="day-label">26</div><div class="day-box"></div></div><div class="day future"><div class="day-label">27</div><div class="day-box"></div></div><div class="day future"><div class="day-label">28</div><div class="day-box"></div></div><div class="day future"><div class="day-label">29</div><div class="day-box"></div></div><div class="day future"><div class="day-label">30</div><div class="day-box"></div></div><div class="day future"><div class="day-label">31</div><div class="day-box"></div></div></div>
+    </div></div>
     <div class="legend">
       <span><span class="legend-swatch" style="background: var(--done); border-color: var(--done-strong)"></span>hecho</span>
       <span><span class="legend-swatch" style="background: var(--missed); border-color: var(--missed-strong)"></span>fallado</span>
       <span><span class="legend-swatch"></span>vacío · toca para cambiar</span>
     </div>
     <div class="prio-legend">
-      <span><span class="prio-swatch" style="background: var(--p1-p2)"></span>P1–P2</span>
-      <span><span class="prio-swatch" style="background: var(--p3-p4)"></span>P3–P4</span>
-      <span><span class="prio-swatch" style="background: var(--p5)"></span>P5</span>
+      <span><span class="prio-swatch" style="background: var(--p1-color)"></span>P1 - Crítico</span>
+      <span><span class="prio-swatch" style="background: var(--p2-color)"></span>P2 - Intermedio</span>
+      <span><span class="prio-swatch" style="background: var(--p3-color)"></span>P3 - Normal</span>
     </div>
   </section>
   </div>
 
   <!-- VISTA: AGENDA (Grupos, pendientes, eventos) -->
-  <div class="view" id="view-agenda">
+  <div class="view" id="view-agenda" hidden="">
+  
+
+  
+
+  
+
+  
   <section class="section" data-section="groups">
     <div class="section-head">
       <h2 class="section-title">Grupos</h2>
@@ -1285,10 +1472,218 @@ canvas {
       <button class="btn" onclick="addGroup()">Crear</button>
       <button class="btn cancel" onclick="toggleForm('group')">Cancelar</button>
     </div>
-    <div id="groups"></div>
-  </section>
-
-  <section class="section" data-section="pending">
+    <div id="groups">
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Aprender IA</h3>
+            <div class="group-meta">
+              <span class="group-progress ">0/2</span>
+              <button class="add-btn" data-add-to="g-aprender-ia">+</button>
+              <button class="icon-btn" data-edit-group="g-aprender-ia" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-aprender-ia">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-aprender-ia">
+            <input type="text" id="gi-text-g-aprender-ia" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-aprender-ia" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-aprender-ia')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-aprender-ia')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-aprender-ia::v-claude-saenz"></button>
+              <a href="https://www.youtube.com/watch?v=imAjmQy8p8c&amp;t=8221s" class="task-title" target="_blank" rel="noopener">Curso Claude — Adrián Sáenz</a>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-aprender-ia::v-claude-saenz">✎</button><button class="icon-btn" data-remove-item="g-aprender-ia::v-claude-saenz">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-aprender-ia::p-word-claude"></button>
+              <span class="task-title">Revisar desde página 1 el Word del curso de Claude</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-aprender-ia::p-word-claude">✎</button><button class="icon-btn" data-remove-item="g-aprender-ia::p-word-claude">✕</button></span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Fitintrade</h3>
+            <div class="group-meta">
+              <span class="group-progress ">1/4</span>
+              <button class="add-btn" data-add-to="g-fitintrade">+</button>
+              <button class="icon-btn" data-edit-group="g-fitintrade" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-fitintrade">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-fitintrade">
+            <input type="text" id="gi-text-g-fitintrade" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-fitintrade" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-fitintrade')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-fitintrade')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-fitintrade::c-revisar-carteras"></button>
+              <span class="task-title">Revisar mis carteras</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-fitintrade::c-revisar-carteras">✎</button><button class="icon-btn" data-remove-item="g-fitintrade::c-revisar-carteras">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-fitintrade::gi-1787177789187"></button>
+              <span class="task-title">Calls?</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-fitintrade::gi-1787177789187">✎</button><button class="icon-btn" data-remove-item="g-fitintrade::gi-1787177789187">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-fitintrade::gi-1787318462925"></button>
+              <span class="task-title">Crear IPS</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-fitintrade::gi-1787318462925">✎</button><button class="icon-btn" data-remove-item="g-fitintrade::gi-1787318462925">✕</button></span>
+            </div>
+          
+            <div class="task-item done">
+              <button class="task-check done" data-toggle-item="g-fitintrade::c-curso-abel"></button>
+              <span class="task-title">Empezar curso de Abel</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-fitintrade::c-curso-abel">✎</button><button class="icon-btn" data-remove-item="g-fitintrade::c-curso-abel">✕</button></span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Compras</h3>
+            <div class="group-meta">
+              <span class="group-progress ">0/3</span>
+              <button class="add-btn" data-add-to="g-compras">+</button>
+              <button class="icon-btn" data-edit-group="g-compras" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-compras">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-compras">
+            <input type="text" id="gi-text-g-compras" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-compras" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-compras')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-compras')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-compras::co-puf-hab"></button>
+              <span class="task-title">Puf habitación</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-compras::co-puf-hab">✎</button><button class="icon-btn" data-remove-item="g-compras::co-puf-hab">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-compras::gi-1787047022978"></button>
+              <span class="task-title">Habitacion remodelacion</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-compras::gi-1787047022978">✎</button><button class="icon-btn" data-remove-item="g-compras::gi-1787047022978">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-compras::gi-1787238808389"></button>
+              <span class="task-title">Soporte ducha</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-compras::gi-1787238808389">✎</button><button class="icon-btn" data-remove-item="g-compras::gi-1787238808389">✕</button></span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Arreglos</h3>
+            <div class="group-meta">
+              <span class="group-progress ">1/4</span>
+              <button class="add-btn" data-add-to="g-arreglos">+</button>
+              <button class="icon-btn" data-edit-group="g-arreglos" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-arreglos">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-arreglos">
+            <input type="text" id="gi-text-g-arreglos" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-arreglos" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-arreglos')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-arreglos')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-arreglos::ar-barra-cortinas"></button>
+              <span class="task-title">Barra cortinas habitación mamá</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-arreglos::ar-barra-cortinas">✎</button><button class="icon-btn" data-remove-item="g-arreglos::ar-barra-cortinas">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-arreglos::ar-armario-abrigos"></button>
+              <span class="task-title">Mejorar armario abrigos</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-arreglos::ar-armario-abrigos">✎</button><button class="icon-btn" data-remove-item="g-arreglos::ar-armario-abrigos">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-arreglos::gi-1786262854659"></button>
+              <span class="task-title">Soporte manguera</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-arreglos::gi-1786262854659">✎</button><button class="icon-btn" data-remove-item="g-arreglos::gi-1786262854659">✕</button></span>
+            </div>
+          
+            <div class="task-item done">
+              <button class="task-check done" data-toggle-item="g-arreglos::ar-balda"></button>
+              <span class="task-title">Balda madera cocina</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-arreglos::ar-balda">✎</button><button class="icon-btn" data-remove-item="g-arreglos::ar-balda">✕</button></span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Panel con inversiones</h3>
+            <div class="group-meta">
+              <span class="group-progress ">0/1</span>
+              <button class="add-btn" data-add-to="g-1787046853763">+</button>
+              <button class="icon-btn" data-edit-group="g-1787046853763" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-1787046853763">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-1787046853763">
+            <input type="text" id="gi-text-g-1787046853763" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-1787046853763" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-1787046853763')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-1787046853763')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-1787046853763::gi-1787046869323"></button>
+              <span class="task-title">Etf artifical intellgience Inteligence E0OBDVPNG</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-1787046853763::gi-1787046869323">✎</button><button class="icon-btn" data-remove-item="g-1787046853763::gi-1787046869323">✕</button></span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="group">
+          <header class="group-head">
+            <h3 class="group-title">Coche</h3>
+            <div class="group-meta">
+              <span class="group-progress ">0/2</span>
+              <button class="add-btn" data-add-to="g-1787481947455">+</button>
+              <button class="icon-btn" data-edit-group="g-1787481947455" title="Editar grupo">✎</button>
+              <button class="icon-btn danger" data-remove-group="g-1787481947455">✕</button>
+            </div>
+          </header>
+          <div class="add-form" id="gi-form-g-1787481947455">
+            <input type="text" id="gi-text-g-1787481947455" placeholder="Descripción" maxlength="140">
+            <input type="url" id="gi-url-g-1787481947455" placeholder="URL (opcional)">
+            <button class="btn" onclick="addGroupItem('g-1787481947455')">Añadir</button>
+            <button class="btn cancel" onclick="toggleGroupForm('g-1787481947455')">Cancelar</button>
+          </div>
+          <div class="group-items">
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-1787481947455::gi-1787481957940"></button>
+              <span class="task-title">Pareo</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-1787481947455::gi-1787481957940">✎</button><button class="icon-btn" data-remove-item="g-1787481947455::gi-1787481957940">✕</button></span>
+            </div>
+          
+            <div class="task-item ">
+              <button class="task-check " data-toggle-item="g-1787481947455::gi-1787481970504"></button>
+              <span class="task-title">Bolsa térmica</span>
+              <span class="item-actions"><button class="icon-btn" data-edit-item="g-1787481947455::gi-1787481970504">✎</button><button class="icon-btn" data-remove-item="g-1787481947455::gi-1787481970504">✕</button></span>
+            </div>
+          </div>
+        </article>
+      </div>
+  </section><section class="section" data-section="pending">
     <div class="section-head">
       <h2 class="section-title">Tareas pendientes</h2>
       <div style="display: flex; gap: 4px;">
@@ -1302,10 +1697,38 @@ canvas {
       <button class="btn" onclick="addPending()">Añadir</button>
       <button class="btn cancel" onclick="toggleForm('pending')">Cancelar</button>
     </div>
-    <div id="pending"></div>
-  </section>
-
-  <section class="section" data-section="events">
+    <div id="pending">
+      <div class="task-item " data-pid="p-1787046837403">
+        <button class="task-check " data-toggle-pending="p-1787046837403"></button>
+        <span class="task-title">Hacer apartado inversiones-</span>
+        <span class="item-actions"><button class="icon-btn" data-edit-pending="p-1787046837403">✎</button><button class="icon-btn" data-remove-pending="p-1787046837403">✕</button></span>
+      </div>
+    
+      <div class="task-item " data-pid="p-1787243768137">
+        <button class="task-check " data-toggle-pending="p-1787243768137"></button>
+        <span class="task-title">Crear proyecto personal</span>
+        <span class="item-actions"><button class="icon-btn" data-edit-pending="p-1787243768137">✎</button><button class="icon-btn" data-remove-pending="p-1787243768137">✕</button></span>
+      </div>
+    
+      <div class="task-item " data-pid="p-1787477436400">
+        <button class="task-check " data-toggle-pending="p-1787477436400"></button>
+        <span class="task-title">Hacer apuntes maestros master</span>
+        <span class="item-actions"><button class="icon-btn" data-edit-pending="p-1787477436400">✎</button><button class="icon-btn" data-remove-pending="p-1787477436400">✕</button></span>
+      </div>
+    
+      <div class="task-item " data-pid="p-1787503945097">
+        <button class="task-check " data-toggle-pending="p-1787503945097"></button>
+        <span class="task-title">Blanqueamiento</span>
+        <span class="item-actions"><button class="icon-btn" data-edit-pending="p-1787503945097">✎</button><button class="icon-btn" data-remove-pending="p-1787503945097">✕</button></span>
+      </div>
+    
+      <div class="task-item " data-pid="p-1787503953948">
+        <button class="task-check " data-toggle-pending="p-1787503953948"></button>
+        <span class="task-title">Buscar deporte</span>
+        <span class="item-actions"><button class="icon-btn" data-edit-pending="p-1787503953948">✎</button><button class="icon-btn" data-remove-pending="p-1787503953948">✕</button></span>
+      </div>
+    </div>
+  </section><section class="section" data-section="events">
     <div class="section-head">
       <h2 class="section-title">Próximos eventos</h2>
       <div style="display: flex; gap: 4px;">
@@ -1320,10 +1743,35 @@ canvas {
       <button class="btn" onclick="addEvent()">Añadir</button>
       <button class="btn cancel" onclick="toggleForm('event')">Cancelar</button>
     </div>
-    <div id="events"></div>
-  </section>
-
-  <section class="section" data-section="notes">
+    <div id="events"><div class="event-item event-past">
+        <button class="event-check" data-check-event="e-1786654525320"></button>
+        <span class="event-date">13/08</span>
+        <span class="task-title">The goal is simple-Better than yesterday- Every single day</span>
+        <span class="event-when">-11 días</span>
+        <span class="item-actions">
+          <button class="icon-btn" onclick="editEvent('e-1786654525320')" title="Editar">✎</button>
+          <button class="icon-btn" data-remove-event="e-1786654525320">✕</button>
+        </span>
+      </div><div class="event-item event-past">
+        <button class="event-check" data-check-event="e-1786960791493"></button>
+        <span class="event-date">22/08</span>
+        <span class="task-title">Crear carteras</span>
+        <span class="event-when">-2 días</span>
+        <span class="item-actions">
+          <button class="icon-btn" onclick="editEvent('e-1786960791493')" title="Editar">✎</button>
+          <button class="icon-btn" data-remove-event="e-1786960791493">✕</button>
+        </span>
+      </div><div class="event-item event-future">
+        <button class="event-check" data-check-event="e-1786211731151"></button>
+        <span class="event-date">01/09</span>
+        <span class="task-title">Nutricionista y videos adeslas</span>
+        <span class="event-when">8d</span>
+        <span class="item-actions">
+          <button class="icon-btn" onclick="editEvent('e-1786211731151')" title="Editar">✎</button>
+          <button class="icon-btn" data-remove-event="e-1786211731151">✕</button>
+        </span>
+      </div></div>
+  </section><section class="section" data-section="notes">
     <div class="notes-section">
       <div class="section-head">
       <h2 class="section-title">📝 Nota del día</h2>
@@ -1334,22 +1782,21 @@ canvas {
     </div>
       <textarea id="notes-input" class="notes-input" placeholder="Escribe cómo te sientes hoy, qué fue bien, qué puedes mejorar..." maxlength="500"></textarea>
       <button class="notes-save" onclick="saveNote()">Guardar nota</button>
-      <div id="notes-display"></div>
+      <div id="notes-display" class="notes-empty"><span class="notes-empty">Sin notas para hoy</span></div>
     </div>
-  </section>
-  </div>
+  </section></div>
 
   <!-- VISTA: STATS (Estadísticas y gráficas) -->
-  <div class="view" id="view-stats" hidden>
+  <div class="view" id="view-stats" hidden="">
   
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">🧠 Resumen semanal</div>
-    <div id="weekly-summary" class="weekly-summary"></div>
+    <div id="weekly-summary" class="weekly-summary"><strong>Esta semana: 10%</strong> de cumplimiento<br>💪 <span class="good">Mejor:</span> 30 mins FitInTrade (29%)<br>⚡ <span class="bad">A mejorar:</span> Aprender inteligencia artificial (0%)<br>💪 Semana floja. ¡A por la siguiente!</div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">🟩 Mapa de calor del mes</div>
-    <div id="heatmap"></div>
+    <div id="heatmap"><div class="heatmap"><div class="heatmap-cell " title="1/8: 0/6"></div><div class="heatmap-cell " title="2/8: 0/6"></div><div class="heatmap-cell " title="3/8: 0/6"></div><div class="heatmap-cell " title="4/8: 0/6"></div><div class="heatmap-cell " title="5/8: 0/6"></div><div class="heatmap-cell " title="6/8: 0/6"></div><div class="heatmap-cell " title="7/8: 0/6"></div><div class="heatmap-cell " title="8/8: 0/6"></div><div class="heatmap-cell " title="9/8: 0/6"></div><div class="heatmap-cell " title="10/8: 0/6"></div><div class="heatmap-cell " title="11/8: 0/6"></div><div class="heatmap-cell " title="12/8: 0/6"></div><div class="heatmap-cell " title="13/8: 0/6"></div><div class="heatmap-cell " title="14/8: 0/6"></div><div class="heatmap-cell " title="15/8: 0/6"></div><div class="heatmap-cell " title="16/8: 0/6"></div><div class="heatmap-cell " title="17/8: 0/6"></div><div class="heatmap-cell " title="18/8: 0/6"></div><div class="heatmap-cell " title="19/8: 0/6"></div><div class="heatmap-cell " title="20/8: 0/6"></div><div class="heatmap-cell l1" title="21/8: 1/6"></div><div class="heatmap-cell l1" title="22/8: 1/6"></div><div class="heatmap-cell l2" title="23/8: 2/6"></div><div class="heatmap-cell  today-cell" title="24/8: 0/6"></div><div class="heatmap-cell  future" title="25/8: 0/6"></div><div class="heatmap-cell  future" title="26/8: 0/6"></div><div class="heatmap-cell  future" title="27/8: 0/6"></div><div class="heatmap-cell  future" title="28/8: 0/6"></div><div class="heatmap-cell  future" title="29/8: 0/6"></div><div class="heatmap-cell  future" title="30/8: 0/6"></div><div class="heatmap-cell  future" title="31/8: 0/6"></div></div></div>
     <div class="heatmap-legend">
       <span>Menos</span>
       <div class="heatmap-cell"></div>
@@ -1369,15 +1816,15 @@ canvas {
       </div>
       <div class="stat-card">
         <div class="stat-label">Racha más larga</div>
-        <div class="stat-value secondary" id="stat-streak">0 días</div>
+        <div class="stat-value secondary" id="stat-streak">2 días</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Cumplimiento mes</div>
-        <div class="stat-value success" id="stat-month">0%</div>
+        <div class="stat-value success" id="stat-month">3%</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Total completados</div>
-        <div class="stat-value" id="stat-total">0</div>
+        <div class="stat-value" id="stat-total">4</div>
       </div>
     </div>
   </section>
@@ -1391,57 +1838,381 @@ canvas {
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">Últimas 4 semanas</div>
-    <div id="weekly-view"></div>
+    <div id="weekly-view">
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 4</div>
+      <div class="week-grid">
+        
+            <div class="week-day">
+              <div class="week-label">03</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">02</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">01</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">31</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">30</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">29</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">28</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 3</div>
+      <div class="week-grid">
+        
+            <div class="week-day">
+              <div class="week-label">10</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">09</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">08</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">07</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">06</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">05</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">04</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 2</div>
+      <div class="week-grid">
+        
+            <div class="week-day">
+              <div class="week-label">17</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">16</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">15</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">14</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">13</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">12</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">11</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 1</div>
+      <div class="week-grid">
+        
+            <div class="week-day">
+              <div class="week-label">24</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">23</div>
+              <div class="week-bars">
+                <div class="week-bar partial" title="2/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">22</div>
+              <div class="week-bars">
+                <div class="week-bar partial" title="1/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">21</div>
+              <div class="week-bars">
+                <div class="week-bar partial" title="1/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">20</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">19</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+            <div class="week-day">
+              <div class="week-label">18</div>
+              <div class="week-bars">
+                <div class="week-bar missed" title="0/6"></div>
+              </div>
+            </div>
+          
+      </div>
+    </div>
+  </div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">Tendencia (30 / 60 / 90 días)</div>
-    <div class="trend-container" id="trend-cards"></div>
+    <div class="trend-container" id="trend-cards">
+    <div class="trend-card">
+      <div class="trend-label">30 días</div>
+      <div class="trend-value up">2%</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-label">60 días</div>
+      <div class="trend-value">1%</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-label">90 días</div>
+      <div class="trend-value">1%</div>
+    </div>
+  </div>
     <div class="chart-container">
       <canvas id="chart-trend" width="400" height="120"></canvas>
     </div>
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">✅ Tareas completadas</div>
-    <div id="completed-tasks"></div>
+    <div id="completed-tasks"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Empezar curso de Abel</span><span style="font-size: 11px; color: var(--text-3);">Fitintrade</span><button class="icon-btn" data-undo-group="g-fitintrade::c-curso-abel" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Balda madera cocina</span><span style="font-size: 11px; color: var(--text-3);">Arreglos</span><button class="icon-btn" data-undo-group="g-arreglos::ar-balda" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
+  </section>
+
+  <section class="section">
+    <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">✅ Items de grupos completados</div>
+    <div id="completed-group-items"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Empezar curso de Abel</span><span style="font-size: 11px; color: var(--text-3);">Fitintrade</span><button class="icon-btn" data-undo-group-item="g-fitintrade::c-curso-abel" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Balda madera cocina</span><span style="font-size: 11px; color: var(--text-3);">Arreglos</span><button class="icon-btn" data-undo-group-item="g-arreglos::ar-balda" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">📅 Eventos completados</div>
-    <div id="completed-events"></div>
+    <div id="completed-events"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">10/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Regalo Papa</span><button class="icon-btn" data-undo-event="e-1786214737966" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">22/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Preview</span><button class="icon-btn" data-undo-event="e-1786796159346" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">21/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Recoger Decatlhon</span><button class="icon-btn" data-undo-event="e-1787243660899" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">📔 Cuaderno de notas</div>
-    <div id="notes-journal" style="display: flex; flex-direction: column-reverse; gap: 12px;"></div>
-  </section>
+    <div id="notes-journal" style="display: flex; flex-direction: column-reverse; gap: 12px;">
+    <button class="btn" onclick="openNotesJournal()" style="width: 100%; text-align: center;">
+      📔 Ver Cuaderno (3 notas)
+    </button>
   </div>
+  </section>
+  </section></div>
 
   </div>
-</div>
+
 
 <!-- Input oculto para importar -->
 <input type="file" id="import-input" accept="application/json" style="display: none" onchange="importData(event)">
 
 <!-- Modal de Recordatorios -->
 <div class="modal" id="modal-reminders">
-  <div class="modal-content reminder-modal-content">
-    <h2 class="modal-title">Recordatorios personalizados</h2>
-    <div id="reminders-list"></div>
+  <div class="modal-content" style="max-width: 500px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <h2 class="modal-title" style="margin: 0;">Recordatorios personalizados</h2>
+      <button class="icon-btn" onclick="closeReminders()">✕</button>
+    </div>
+    <div style="font-size: 12px; color: var(--text-3); margin-bottom: 16px;">
+      Configura cuándo quieres recordatorios para cada hábito.
+    </div>
+    <div id="reminders-list" style="margin-bottom: 16px;">
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #f4a460;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch on" data-reminder-id="aprender-ia" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">1. Aprender inteligencia artificial</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="aprender-ia" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="aprender-ia" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #f4a460;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch on" data-reminder-id="no-procrastinar" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">2. No procrastinar (regla 5s)</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="no-procrastinar" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="no-procrastinar" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch on" data-reminder-id="deporte" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">3. Deporte 4/7 dias -20 mins</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="deporte" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="deporte" value="12:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6db67f;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch on" data-reminder-id="buenas-vibras" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">4. Sonreír, buenas vibras</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="buenas-vibras" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="buenas-vibras" value="12:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch " data-reminder-id="habit-1787310733658" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">5. 30 mins FitInTrade</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="habit-1787310733658" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="habit-1787310733658" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch " data-reminder-id="habit-1787046963134" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">6. No olvidarse de las cosas</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="habit-1787046963134" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="habit-1787046963134" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
+        </div>
+      </div>
+    </div>
+    <button class="btn" style="width: 100%; margin-bottom: 8px;" onclick="addNewReminder()">+ Añadir recordatorio a hábito</button>
     <button class="modal-close" onclick="closeReminders()">Cerrar</button>
   </div>
 </div>
 
 <!-- Modal de Settings -->
-<div class="modal" id="modal-settings">
+<div class="modal show" id="modal-settings">
   <div class="modal-content">
     <h2 class="modal-title">Configuración</h2>
     <div class="settings-row">
       <span class="settings-label">Modo claro/oscuro</span>
-      <button class="toggle" id="toggle-theme" aria-label="Alternar tema"></button>
+      <button class="toggle on" id="toggle-theme" aria-label="Alternar tema"></button>
     </div>
     <div class="settings-row">
-      <span class="settings-label">Notificaciones a las 22:00</span>
-      <button class="toggle" id="toggle-notifications" aria-label="Alternar notificaciones"></button>
+    <div style="font-size: 12px; color: var(--text-3); margin-bottom: 8px;">Los recordatorios se configuran en la campanita 🔔</div>
     </div>
     
     <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--border);">
@@ -1464,7 +2235,7 @@ canvas {
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">Recordatorio desactivado</div>
 
 <!-- Service Worker (se registra abajo en JS) -->
 <script id="sw-code">
@@ -1874,11 +2645,39 @@ function saveNewHabit() {
 function editHabit(id) {
   const habit = HABITS.find(h => h.id === id);
   if (!habit) return;
-  openEditText('Editar hábito (nombre)', habit.name, (newName) => {
-    habit.name = newName;
-    save(); render();
-    toast('Hábito actualizado');
-  });
+  
+  // Guardar el ID en un atributo para usarlo en saveEditHabit
+  document.getElementById('modal-edit-habit').dataset.habitId = id;
+  document.getElementById('edit-habit-name').value = habit.name;
+  document.getElementById('edit-habit-prio').value = habit.priority || 3;
+  
+  document.getElementById('modal-edit-habit').classList.add('visible');
+}
+
+function saveEditHabit() {
+  const id = document.getElementById('modal-edit-habit').dataset.habitId;
+  const newName = document.getElementById('edit-habit-name').value.trim();
+  const newPrio = parseInt(document.getElementById('edit-habit-prio').value);
+  
+  if (!newName) {
+    toast('El nombre no puede estar vacío');
+    return;
+  }
+  
+  const habit = HABITS.find(h => h.id === id);
+  if (!habit) return;
+  
+  habit.name = newName;
+  habit.priority = newPrio;
+  
+  closeEditHabitModal();
+  save();
+  render();
+  toast('Hábito actualizado');
+}
+
+function closeEditHabitModal() {
+  document.getElementById('modal-edit-habit').classList.remove('visible');
 }
 
 function deleteHabit(id) {
@@ -2059,6 +2858,96 @@ function toggleEventDone(id) {
   }
   save(); render();
 }
+
+// ============ REORDENAR HÁBITOS ============
+function moveHabit(id, direction) {
+  const idx = HABITS.findIndex(h => h.id === id);
+  if (idx === -1) return;
+  
+  if (direction === 'up' && idx > 0) {
+    [HABITS[idx], HABITS[idx - 1]] = [HABITS[idx - 1], HABITS[idx]];
+  } else if (direction === 'down' && idx < HABITS.length - 1) {
+    [HABITS[idx], HABITS[idx + 1]] = [HABITS[idx + 1], HABITS[idx]];
+  }
+  
+  save();
+  render();
+}
+
+
+// ============ EVENTOS URGENTES ============
+function renderUrgentEvents() {
+  const el = document.getElementById('urgent-events-banner');
+  if (!el) return;
+  
+  const now = new Date();
+  const urgent = events.filter(e => {
+    if (e.done) return false;
+    const du = daysUntil(e.date);
+    return du >= 0 && du <= 2;
+  }).sort((a, b) => a.date.localeCompare(b.date));
+  
+  if (urgent.length === 0) {
+    el.innerHTML = '';
+    return;
+  }
+  
+  let html = '<div style="background: var(--surface-2); border-left: 3px solid var(--missed); padding: 12px; border-radius: 4px;">';
+  html += '<div style="font-weight: 600; color: var(--missed); margin-bottom: 8px;">⚠️ Próximos 3 días</div>';
+  html += urgent.map(e => {
+    const du = daysUntil(e.date);
+    const when = du === 0 ? 'HOY' : du === 1 ? 'MAÑANA' : 'EN 2 DÍAS';
+    const [_,m,d] = e.date.split('-');
+    return '<div style="display: flex; gap: 8px; padding: 6px 0; font-size: 13px;">' +
+      '<span style="font-family: monospace; color: var(--text-3); min-width: 35px;">' + d + '/' + m + '</span>' +
+      '<span>' + escapeHtml(e.text) + ' (' + when + ')</span>' +
+    '</div>';
+  }).join('');
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+
+// ============ ITEMS DE GRUPOS COMPLETADOS ============
+function renderCompletedGroupItems() {
+  const el = document.getElementById('completed-group-items');
+  if (!el) return;
+  
+  let completed = [];
+  for (const g of groups) {
+    for (const item of g.items) {
+      if (item.done) {
+        completed.push({ text: item.text, group: g.title, gid: g.id, iid: item.id });
+      }
+    }
+  }
+  
+  if (completed.length === 0) {
+    el.innerHTML = '<div style="text-align: center; color: var(--text-3); padding: 16px;">Aún no hay items completados</div>';
+    return;
+  }
+  
+  el.innerHTML = completed.map(c => {
+    return '<div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);">' +
+      '<span style="color: var(--done);">✓</span>' +
+      '<span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">' + escapeHtml(c.text) + '</span>' +
+      '<span style="font-size: 11px; color: var(--text-3);">' + escapeHtml(c.group) + '</span>' +
+      '<button class="icon-btn" data-undo-group-item="' + c.gid + '::' + c.iid + '" title="Desmarcar" style="font-size: 11px;">↩</button>' +
+    '</div>';
+  }).join('');
+  
+  el.querySelectorAll('[data-undo-group-item]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const [gid, iid] = btn.dataset.undoGroupItem.split('::');
+      const g = groups.find(x => x.id === gid);
+      if (g) {
+        const item = g.items.find(x => x.id === iid);
+        if (item) { item.done = false; save(); render(); renderCompletedGroupItems(); toast('Item restaurado'); }
+      }
+    });
+  });
+}
+
 // ============ EVENTOS ============
 function addEvent() {
   const date = document.getElementById('event-date').value;
@@ -2135,34 +3024,90 @@ function closeReminders() {
 
 function renderRemindersModal() {
   const list = document.getElementById('reminders-list');
-  list.innerHTML = HABITS.map(h => {
+  
+  if (HABITS.length === 0) {
+    list.innerHTML = '<div style="text-align: center; color: var(--text-3);">No hay hábitos creados</div>';
+    return;
+  }
+  
+  list.innerHTML = HABITS.map((h, idx) => {
     const r = reminders[h.id] || { enabled: false, time: '22:00' };
+    const pColor = h.priority === 1 ? '#f4a460' : h.priority === 2 ? '#6ba3d0' : '#6db67f';
+    
     return `
-      <div class="reminder-row">
-        <span class="reminder-habit">${escapeHtml(h.name)}</span>
-        <div class="reminder-time">
-          <input type="time" value="${r.time}" data-habit="${h.id}" onchange="updateReminderTime(this)">
-          <button class="reminder-toggle ${r.enabled ? 'on' : ''}" data-habit="${h.id}" onclick="toggleReminder(this)"></button>
+      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid ${pColor};">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+          <button class="reminder-toggle-switch ${r.enabled ? 'on' : ''}" data-reminder-id="${h.id}" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
+          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">${idx + 1}. ${escapeHtml(h.name)}</label>
+          <button class="icon-btn delete-reminder-btn" data-delete-reminder="${h.id}" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
+          <input type="time" class="reminder-time-input" data-reminder-time="${h.id}" value="${r.time}" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
         </div>
       </div>
     `;
   }).join('');
+  
+  // Bindear event listeners DESPUÉS de renderizar
+  document.querySelectorAll('.reminder-toggle-switch').forEach(btn => {
+    btn.addEventListener('click', toggleReminder);
+  });
+  
+  document.querySelectorAll('.reminder-time-input').forEach(input => {
+    input.addEventListener('change', updateReminderTime);
+  });
+  
+  document.querySelectorAll('.delete-reminder-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const habitId = btn.dataset.deleteReminder;
+      deleteReminder(habitId);
+    });
+  });
 }
 
+function addNewReminder() {
+  // Abre selector de hábitos sin recordatorio
+  const habitsWithoutReminder = HABITS.filter(h => !reminders[h.id]?.enabled);
+  
+  if (habitsWithoutReminder.length === 0) {
+    toast('Todos los hábitos tienen recordatorio activado');
+    return;
+  }
+  
+  // Simplemente renderizar para que vea todos los hábitos
+  renderRemindersModal();
+  toast('Selecciona un hábito y activa el recordatorio');
+}
+
+function deleteReminder(habitId) {
+  if (confirm('¿Eliminar este recordatorio?')) {
+    delete reminders[habitId];
+    save();
+    renderRemindersModal();
+    toast('Recordatorio eliminado');
+  }
+}
+
+
 function updateReminderTime(input) {
-  const habitId = input.dataset.habit;
+  const habitId = input.dataset.reminderTime;
   if (!reminders[habitId]) reminders[habitId] = { enabled: false, time: '22:00' };
   reminders[habitId].time = input.value;
   save();
+  if (reminders[habitId].enabled) scheduleHabitReminders();
+  toast('Hora actualizada a ' + input.value);
 }
 
-function toggleReminder(btn) {
-  const habitId = btn.dataset.habit;
+function toggleReminder(e) {
+  const btn = e.target;
+  const habitId = btn.dataset.reminderId;
   if (!reminders[habitId]) reminders[habitId] = { enabled: false, time: '22:00' };
   reminders[habitId].enabled = !reminders[habitId].enabled;
   btn.classList.toggle('on');
   save();
-  toast(`Recordatorio ${reminders[habitId].enabled ? 'activado' : 'desactivado'}`);
+  if (reminders[habitId].enabled) scheduleHabitReminders();
+  toast(`Recordatorio ${reminders[habitId].enabled ? 'activado 🔔' : 'desactivado'}`);
 }
 
 // ============ UI: Toggle Form ============
@@ -2395,10 +3340,8 @@ function renderTrendCards() {
 function applyTheme() {
   if (settings.darkMode) {
     document.body.classList.remove('light-mode');
-    document.getElementById('btn-theme').textContent = '🌙';
   } else {
     document.body.classList.add('light-mode');
-    document.getElementById('btn-theme').textContent = '☀️';
   }
 }
 
@@ -2410,6 +3353,11 @@ function toggleTheme() {
 
 // ============ NOTIFICACIONES ============
 function toggleNotifications() {
+  // Abrir modal de recordatorios en vez de toggle
+  document.getElementById('modal-reminders').classList.add('show');
+  renderReminders();
+  return;
+  
   settings.notifications = !settings.notifications;
   if (settings.notifications) {
     if ('serviceWorker' in navigator && 'Notification' in window) {
@@ -2544,8 +3492,21 @@ function render() {
 
     const card = document.createElement('div');
     card.className = `habit p${h.priority}`;
+    
+    // Número del hábito (índice + 1)
+    const habitNumber = HABITS.indexOf(h) + 1;
+    const isFirst = habitNumber === 1;
+    const isLast = habitNumber === HABITS.length;
+    
     card.innerHTML = `
       <div class="habit-head">
+        <span class="habit-number">${habitNumber}</span>
+        <div class="habit-reorder-btns" style="display: ${isFirst ? 'none' : 'flex'};">
+          <button style="visibility: ${isFirst ? 'hidden' : 'visible'};" onclick="moveHabit('${h.id}', 'up')" title="Arriba">▲</button>
+        </div>
+        <div class="habit-reorder-btns" style="display: ${isLast ? 'none' : 'flex'};">
+          <button style="visibility: ${isLast ? 'hidden' : 'visible'};" onclick="moveHabit('${h.id}', 'down')" title="Abajo">▼</button>
+        </div>
         <span class="habit-name">${escapeHtml(h.name)}</span>
         ${streakHTML}
         <span class="habit-actions">
@@ -3060,6 +4021,7 @@ function renderCompletedEvents() {
     btn.addEventListener('click', () => {
       toggleEventDone(btn.dataset.undoEvent);
       renderCompletedEvents();
+      renderCompletedGroupItems();
     });
   });
 }
@@ -3128,6 +4090,7 @@ function switchView(view) {
       renderWeeklySummary();
       renderCompletedTasks();
       renderCompletedEvents();
+      renderCompletedGroupItems();
     }, 50);
   }
 }
@@ -3137,11 +4100,11 @@ document.querySelectorAll('.tab').forEach(t => {
   t.addEventListener('click', () => switchView(t.dataset.view));
 });
 
-document.getElementById('btn-theme').addEventListener('click', toggleTheme);
+// Tema está en Settings (toggle-theme)
 document.getElementById('btn-settings').addEventListener('click', openSettings);
 document.getElementById('btn-reminders').addEventListener('click', openReminders);
 document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-document.getElementById('toggle-notifications').addEventListener('click', toggleNotifications);
+// Toggle de notificaciones movido a campanita
 
 document.querySelectorAll('[data-toggle]').forEach(btn => {
   btn.addEventListener('click', () => toggleForm(btn.dataset.toggle));
@@ -3197,6 +4160,8 @@ function updateSyncIndicator() {
 }
 
 if (sb) initCloud();
+
+// NO abrir engranaje automáticamente
 
 
 
@@ -3265,11 +4230,9 @@ document._lastToday = todayISO();
     <div style="margin-bottom: 16px;">
       <label style="display: block; color: var(--text-3); font-size: 12px; margin-bottom: 6px;">Prioridad:</label>
       <select id="new-habit-prio" style="width: 100%; padding: 8px; border: 1px solid var(--bg-3); border-radius: 4px; background: var(--bg-2); color: var(--text-1); box-sizing: border-box;">
-        <option value="1">P1 - Crítico</option>
-        <option value="2">P2 - Muy importante</option>
-        <option value="3" selected>P3 - Importante</option>
-        <option value="4">P4 - Útil</option>
-        <option value="5">P5 - Poco a poco</option>
+        <option value="1" style="background: #1a1a1b; color: white;">P1 - Crítico (Naranja)</option>
+        <option value="2" style="background: #1a1a1b; color: white;">P2 - Intermedio (Azul)</option>
+        <option value="3" selected="" style="background: #1a1a1b; color: white;">P3 - Normal (Verde)</option>
       </select>
     </div>
     <div style="display: flex; gap: 8px; margin-top: 16px;">
@@ -3279,8 +4242,29 @@ document._lastToday = todayISO();
   </div>
 </div>
 
+<!-- MODAL: Editar Hábito (nombre + prioridad) -->
+<div id="modal-edit-habit" class="modal" style="justify-content: center; align-items: center;">
+  <div class="modal-content" style="max-width: 350px;">
+    <h3 style="margin: 0 0 16px 0; font-size: 16px;">Editar hábito</h3>
+    <div style="margin-bottom: 12px;">
+      <input type="text" id="edit-habit-name" placeholder="Nombre del hábito" maxlength="60" style="width: 100%; padding: 8px; border: 1px solid var(--bg-3); border-radius: 4px; background: var(--bg-2); color: var(--text-1); box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; color: var(--text-3); font-size: 12px; margin-bottom: 6px;">Prioridad:</label>
+      <select id="edit-habit-prio" style="width: 100%; padding: 8px; border: 1px solid var(--bg-3); border-radius: 4px; background: var(--bg-2); color: var(--text-1); box-sizing: border-box;">
+        <option value="1" style="background: #1a1a1b; color: white;">P1 - Crítico (Naranja)</option>
+        <option value="2" style="background: #1a1a1b; color: white;">P2 - Intermedio (Azul)</option>
+        <option value="3" style="background: #1a1a1b; color: white;">P3 - Normal (Verde)</option>
+      </select>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 16px;">
+      <button class="btn" style="flex: 1;" onclick="saveEditHabit()">Guardar</button>
+      <button class="btn cancel" style="flex: 1;" onclick="closeEditHabitModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
 
-<!-- MODAL: Editor genérico -->
+
 <div id="modal-edit-text" class="modal">
   <div class="modal-content" style="max-width: 400px;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
@@ -3295,5 +4279,6 @@ document._lastToday = todayISO();
   </div>
 </div>
 
-</body>
-</html>
+
+
+<div id="sync-indicator" style="position: fixed; bottom: 8px; right: 8px; font-size: 11px; padding: 4px 8px; border-radius: 12px; z-index: 999; opacity: 0.3; background: var(--done); color: rgb(255, 255, 255);">☁️ Sincronizado</div></body></html>
