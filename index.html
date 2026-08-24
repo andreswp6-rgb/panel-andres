@@ -1289,7 +1289,7 @@ canvas {
 
 </style>
 </head>
-<body class="">
+<body>
 <div class="app">
   <header class="header">
     <div class="header-left">
@@ -1791,12 +1791,12 @@ canvas {
   
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">🧠 Resumen semanal</div>
-    <div id="weekly-summary" class="weekly-summary"><strong>Esta semana: 10%</strong> de cumplimiento<br>💪 <span class="good">Mejor:</span> 30 mins FitInTrade (29%)<br>⚡ <span class="bad">A mejorar:</span> Aprender inteligencia artificial (0%)<br>💪 Semana floja. ¡A por la siguiente!</div>
+    <div id="weekly-summary" class="weekly-summary"></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">🟩 Mapa de calor del mes</div>
-    <div id="heatmap"><div class="heatmap"><div class="heatmap-cell " title="1/8: 0/6"></div><div class="heatmap-cell " title="2/8: 0/6"></div><div class="heatmap-cell " title="3/8: 0/6"></div><div class="heatmap-cell " title="4/8: 0/6"></div><div class="heatmap-cell " title="5/8: 0/6"></div><div class="heatmap-cell " title="6/8: 0/6"></div><div class="heatmap-cell " title="7/8: 0/6"></div><div class="heatmap-cell " title="8/8: 0/6"></div><div class="heatmap-cell " title="9/8: 0/6"></div><div class="heatmap-cell " title="10/8: 0/6"></div><div class="heatmap-cell " title="11/8: 0/6"></div><div class="heatmap-cell " title="12/8: 0/6"></div><div class="heatmap-cell " title="13/8: 0/6"></div><div class="heatmap-cell " title="14/8: 0/6"></div><div class="heatmap-cell " title="15/8: 0/6"></div><div class="heatmap-cell " title="16/8: 0/6"></div><div class="heatmap-cell " title="17/8: 0/6"></div><div class="heatmap-cell " title="18/8: 0/6"></div><div class="heatmap-cell " title="19/8: 0/6"></div><div class="heatmap-cell " title="20/8: 0/6"></div><div class="heatmap-cell l1" title="21/8: 1/6"></div><div class="heatmap-cell l1" title="22/8: 1/6"></div><div class="heatmap-cell l2" title="23/8: 2/6"></div><div class="heatmap-cell  today-cell" title="24/8: 0/6"></div><div class="heatmap-cell  future" title="25/8: 0/6"></div><div class="heatmap-cell  future" title="26/8: 0/6"></div><div class="heatmap-cell  future" title="27/8: 0/6"></div><div class="heatmap-cell  future" title="28/8: 0/6"></div><div class="heatmap-cell  future" title="29/8: 0/6"></div><div class="heatmap-cell  future" title="30/8: 0/6"></div><div class="heatmap-cell  future" title="31/8: 0/6"></div></div></div>
+    <div id="heatmap"></div>
     <div class="heatmap-legend">
       <span>Menos</span>
       <div class="heatmap-cell"></div>
@@ -1838,274 +1838,33 @@ canvas {
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">Últimas 4 semanas</div>
-    <div id="weekly-view">
-    <div style="margin-bottom: 16px;">
-      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 4</div>
-      <div class="week-grid">
-        
-            <div class="week-day">
-              <div class="week-label">03</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">02</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">01</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">31</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">30</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">29</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">28</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-      </div>
-    </div>
-  
-    <div style="margin-bottom: 16px;">
-      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 3</div>
-      <div class="week-grid">
-        
-            <div class="week-day">
-              <div class="week-label">10</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">09</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">08</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">07</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">06</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">05</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">04</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-      </div>
-    </div>
-  
-    <div style="margin-bottom: 16px;">
-      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 2</div>
-      <div class="week-grid">
-        
-            <div class="week-day">
-              <div class="week-label">17</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">16</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">15</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">14</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">13</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">12</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">11</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-      </div>
-    </div>
-  
-    <div style="margin-bottom: 16px;">
-      <div style="font-size: 10px; color: var(--text-3); margin-bottom: 6px; font-family: var(--font-mono);">Semana 1</div>
-      <div class="week-grid">
-        
-            <div class="week-day">
-              <div class="week-label">24</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">23</div>
-              <div class="week-bars">
-                <div class="week-bar partial" title="2/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">22</div>
-              <div class="week-bars">
-                <div class="week-bar partial" title="1/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">21</div>
-              <div class="week-bars">
-                <div class="week-bar partial" title="1/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">20</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">19</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-            <div class="week-day">
-              <div class="week-label">18</div>
-              <div class="week-bars">
-                <div class="week-bar missed" title="0/6"></div>
-              </div>
-            </div>
-          
-      </div>
-    </div>
-  </div>
+    <div id="weekly-view"></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">Tendencia (30 / 60 / 90 días)</div>
-    <div class="trend-container" id="trend-cards">
-    <div class="trend-card">
-      <div class="trend-label">30 días</div>
-      <div class="trend-value up">2%</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-label">60 días</div>
-      <div class="trend-value">1%</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-label">90 días</div>
-      <div class="trend-value">1%</div>
-    </div>
-  </div>
+    <div class="trend-container" id="trend-cards"></div>
     <div class="chart-container">
       <canvas id="chart-trend" width="400" height="120"></canvas>
     </div>
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">✅ Tareas completadas</div>
-    <div id="completed-tasks"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Empezar curso de Abel</span><span style="font-size: 11px; color: var(--text-3);">Fitintrade</span><button class="icon-btn" data-undo-group="g-fitintrade::c-curso-abel" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Balda madera cocina</span><span style="font-size: 11px; color: var(--text-3);">Arreglos</span><button class="icon-btn" data-undo-group="g-arreglos::ar-balda" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
+    <div id="completed-tasks"></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">✅ Items de grupos completados</div>
-    <div id="completed-group-items"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Empezar curso de Abel</span><span style="font-size: 11px; color: var(--text-3);">Fitintrade</span><button class="icon-btn" data-undo-group-item="g-fitintrade::c-curso-abel" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Balda madera cocina</span><span style="font-size: 11px; color: var(--text-3);">Arreglos</span><button class="icon-btn" data-undo-group-item="g-arreglos::ar-balda" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
+    <div id="completed-group-items"></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">📅 Eventos completados</div>
-    <div id="completed-events"><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">10/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Regalo Papa</span><button class="icon-btn" data-undo-event="e-1786214737966" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">22/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Preview</span><button class="icon-btn" data-undo-event="e-1786796159346" title="Desmarcar" style="font-size: 11px;">↩</button></div><div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface-2); border-radius: 4px; margin-bottom: 6px; border-left: 3px solid var(--done);"><span style="color: var(--done);">✓</span><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-3); min-width: 40px;">21/08</span><span style="flex: 1; color: var(--text); font-size: 13px; text-decoration: line-through; opacity: 0.7;">Recoger Decatlhon</span><button class="icon-btn" data-undo-event="e-1787243660899" title="Desmarcar" style="font-size: 11px;">↩</button></div></div>
+    <div id="completed-events"></div>
   </section>
 
   <section class="section">
     <div class="chart-title" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 12px;">📔 Cuaderno de notas</div>
-    <div id="notes-journal" style="display: flex; flex-direction: column-reverse; gap: 12px;">
-    <button class="btn" onclick="openNotesJournal()" style="width: 100%; text-align: center;">
-      📔 Ver Cuaderno (3 notas)
-    </button>
-  </div>
+    <div id="notes-journal" style="display: flex; flex-direction: column-reverse; gap: 12px;"></div>
   </section>
   </section></div>
 
@@ -2125,79 +1884,7 @@ canvas {
     <div style="font-size: 12px; color: var(--text-3); margin-bottom: 16px;">
       Configura cuándo quieres recordatorios para cada hábito.
     </div>
-    <div id="reminders-list" style="margin-bottom: 16px;">
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #f4a460;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch on" data-reminder-id="aprender-ia" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">1. Aprender inteligencia artificial</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="aprender-ia" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="aprender-ia" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #f4a460;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch on" data-reminder-id="no-procrastinar" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">2. No procrastinar (regla 5s)</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="no-procrastinar" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="no-procrastinar" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch on" data-reminder-id="deporte" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">3. Deporte 4/7 dias -20 mins</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="deporte" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="deporte" value="12:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6db67f;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch on" data-reminder-id="buenas-vibras" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">4. Sonreír, buenas vibras</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="buenas-vibras" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="buenas-vibras" value="12:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch " data-reminder-id="habit-1787310733658" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">5. 30 mins FitInTrade</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="habit-1787310733658" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="habit-1787310733658" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    
-      <div style="padding: 8px; background: var(--surface-2); margin-bottom: 4px; border-radius: 3px; border-left: 2px solid #6ba3d0;">
-        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-          <button class="reminder-toggle-switch " data-reminder-id="habit-1787046963134" style="flex-shrink: 0; width: 45px; height: 22px;"></button>
-          <label style="flex: 1; cursor: pointer; font-weight: 500; font-size: 13px;">6. No olvidarse de las cosas</label>
-          <button class="icon-btn delete-reminder-btn" data-delete-reminder="habit-1787046963134" title="Eliminar" style="color: var(--missed); font-size: 12px;">✕</button>
-        </div>
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="font-size: 11px; color: var(--text-3);">Hora:</span>
-          <input type="time" class="reminder-time-input" data-reminder-time="habit-1787046963134" value="22:00" style="padding: 4px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-2); color: var(--text); font-size: 12px; flex: 1;">
-        </div>
-      </div>
-    </div>
+    <div id="reminders-list" style="margin-bottom: 16px;"></div>
     <button class="btn" style="width: 100%; margin-bottom: 8px;" onclick="addNewReminder()">+ Añadir recordatorio a hábito</button>
     <button class="modal-close" onclick="closeReminders()">Cerrar</button>
   </div>
@@ -2235,7 +1922,7 @@ canvas {
   </div>
 </div>
 
-<div class="toast" id="toast">Recordatorio desactivado</div>
+<div class="toast" id="toast"></div>
 
 <!-- Service Worker (se registra abajo en JS) -->
 <script id="sw-code">
@@ -4119,6 +3806,13 @@ render();
 renderNotes();
 applyTheme();
 switchView(localStorage.getItem('view') || 'agenda');
+
+// ASEGURAR que los modales estén cerrados
+document.getElementById('modal-settings')?.classList.remove('show', 'visible');
+document.getElementById('modal-reminders')?.classList.remove('show', 'visible');
+document.getElementById('modal-new-habit')?.classList.remove('show', 'visible');
+document.getElementById('modal-edit-habit')?.classList.remove('show', 'visible');
+document.getElementById('modal-edit-text')?.classList.remove('show', 'visible');
 
 // 2. Intentar cargar desde la nube (async, actualiza si hay datos más recientes)
 async function initCloud() {
